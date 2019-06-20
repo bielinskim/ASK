@@ -1,5 +1,5 @@
 JMP Start
-DB "chce_"
+DB "_chce_"
 DB "zaliczyc_"
 DB "ask_"
 DB "na5_"
@@ -21,7 +21,8 @@ PUSH CL
 JZ stos
 
 stos:
-
+CMP AL, 20
+JZ end_label
 DEC DL
 MOV AL, [DL]
 PUSH AL
@@ -30,18 +31,18 @@ JZ sprawdz
 JNZ stos
 
 sprawdz:
+POP CL
 CMP CL, FF
 JNZ wypisz
+PUSH CL
 JZ stos
 
+
 wypisz:
-POP CL
 MOV [BL], CL
 INC BL
+
 JMP sprawdz
-
-
-
 
 
 end_label:
