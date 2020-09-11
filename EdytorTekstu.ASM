@@ -71,9 +71,9 @@ JZ newenter
 CMP BL, E0
 JZ newenter 
 
-; ustawiamy adres kursora na poczatek linii, linie zaczynaja sie od pelnych dziesiatek 60, 70, 80..., czyli np. 76 / 10 = 7, 7 * 10 = 70 - mamy poczatek biezacej linii
-DIV BL, 10
-MUL BL, 10
+; ustawiamy adres kursora na nowej linii
+DIV BL, 10 ; dzielimy adres przez 10
+MUL BL, 10 ; potem mnozymy przez 10
 
 JMP back ; powrot
 
