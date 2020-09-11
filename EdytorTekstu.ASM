@@ -72,8 +72,9 @@ CMP BL, E0
 JZ newenter 
 
 ; ustawiamy adres kursora na nowej linii
-DIV BL, 10 ; dzielimy adres przez 10
+DIV BL, 10 ; dzielimy bez reszty adres przez 10(wynik jest chyba zawsze zaokraglany w gore)
 MUL BL, 10 ; potem mnozymy przez 10
+; np 76 / 10 = 8, 8 * 10 = 80
 
 JMP back ; powrot
 
